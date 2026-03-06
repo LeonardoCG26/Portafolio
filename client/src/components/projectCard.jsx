@@ -20,7 +20,7 @@ export default function ProjectCard({ title, description, tags, imageUrl }) {
           scale: isHovered ? 1.1 : 1,
         }}
         transition={{ duration: 0.4 }}
-        className="h-48 overflow-hidden"
+        className="h-44 sm:h-48 overflow-hidden"
       >
         <img 
           src={imageUrl} 
@@ -30,15 +30,15 @@ export default function ProjectCard({ title, description, tags, imageUrl }) {
       </motion.div>
 
       {/* Overlay de contenido */}
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <motion.h3 
-          className="text-2xl font-bold text-white mb-2"
+          className="text-xl sm:text-2xl font-bold text-white mb-2"
           animate={{ x: isHovered ? 5 : 0 }}
         >
           {title}
         </motion.h3>
         
-        <p className="text-gray-300 mb-4">
+        <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
           {description}
         </p>
 
@@ -52,7 +52,7 @@ export default function ProjectCard({ title, description, tags, imageUrl }) {
           {tags.map((tag, index) => (
             <span 
               key={index}
-              className="px-3 py-1 bg-blue-600/30 text-blue-100 rounded-full text-sm backdrop-blur-sm"
+              className="px-3 py-1 bg-blue-600/30 text-blue-100 rounded-full text-xs sm:text-sm backdrop-blur-sm"
             >
               {tag}
             </span>
@@ -68,7 +68,7 @@ export default function ProjectCard({ title, description, tags, imageUrl }) {
             scale: 1.05,
             backgroundColor: "rgba(59, 130, 246, 0.8)" 
           }}
-          className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg font-medium shadow-lg"
+          className="mt-6 w-full sm:w-auto px-6 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-lg font-medium shadow-lg"
         >
           Ver Proyecto
         </motion.button>
