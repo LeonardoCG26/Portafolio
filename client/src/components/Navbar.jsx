@@ -13,19 +13,19 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 text-white px-4 py-4 sm:px-6 md:px-8 md:py-6">
-      <div className="mx-auto w-full max-w-6xl flex items-center justify-between gap-3">
-        <Link to="/" className="hover:opacity-80 transition min-w-0">
+      <div className="mx-auto w-full max-w-6xl grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+        <Link to="/" className="hover:opacity-80 transition min-w-0 justify-self-start">
           <div className="leading-tight">
             <h1 className="text-base sm:text-lg font-medium tracking-tight truncate">
-              Leonardo Cortes Garcia
+              Leonardo Cortés García
             </h1>
-            <p className="hidden sm:block text-sm text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-400 italic font-serif tracking-wide">
               Software Engineer
             </p>
           </div>
         </Link>
 
-        <div className="relative flex shrink-0 bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+        <div className="relative flex shrink-0 justify-self-center bg-white/5 backdrop-blur-md rounded-full p-1.5 border border-white/10">
           {navItems.map((item, index) => {
             const isActive = location.pathname === item.path;
             const isHovered = hovered === index;
@@ -36,7 +36,7 @@ export default function Navbar() {
                 to={item.path}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
-                className="relative px-4 sm:px-6 py-2 text-xs sm:text-sm tracking-wide"
+                className="relative px-4 sm:px-7 py-2.5 text-xs sm:text-base tracking-wide"
               >
                 {(isHovered || isActive) && (
                   <motion.div
@@ -53,6 +53,8 @@ export default function Navbar() {
             );
           })}
         </div>
+
+        <div className="justify-self-end w-0 sm:w-24 md:w-28" />
       </div>
     </nav>
   );
