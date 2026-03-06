@@ -30,7 +30,7 @@ export default function ProjectsPage() {
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-black text-white pt-32 px-6"
+      className="min-h-screen bg-black text-white pt-32 sm:pt-36 px-4 sm:px-6 pb-10"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-6xl font-light tracking-tight mb-20"
+          className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-10 sm:mb-20"
         >
           Selected{" "}
           <span className="italic font-serif text-gray-400">
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
         </motion.h1>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={index}
