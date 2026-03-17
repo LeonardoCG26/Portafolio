@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-export default function ProjectCard({ title, description, tags, imageUrl }) {
+export default function ProjectCard({ title, description, tags, imageUrl, projectUrl }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -62,16 +62,25 @@ export default function ProjectCard({ title, description, tags, imageUrl }) {
        
 
         {/* Botón con efecto de profundidad */}
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          whileHover={{ 
-            scale: 1.05,
-            backgroundColor: "rgba(59, 130, 246, 0.8)" 
-          }}
-          className="mt-6 w-full sm:w-auto px-6 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-lg font-medium shadow-lg"
-        >
-          Ver Proyecto
-        </motion.button>
+        {projectUrl ? (
+          <motion.a
+            href={projectUrl}
+            target="_blank"
+            rel="noreferrer"
+            whileTap={{ scale: 0.95 }}
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: "rgba(59, 130, 246, 0.8)",
+            }}
+            className="mt-6 inline-flex w-full sm:w-auto items-center justify-center px-6 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-lg font-medium shadow-lg"
+          >
+            Ver Proyecto
+          </motion.a>
+        ) : (
+          <span className="mt-6 inline-flex w-full sm:w-auto items-center justify-center px-6 py-2 text-sm sm:text-base bg-white/10 text-white/60 rounded-lg font-medium shadow-lg">
+            Proximamente
+          </span>
+        )}
       </div>
 
       {/* Efecto de brillo al hacer hover */}
