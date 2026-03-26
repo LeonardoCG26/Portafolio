@@ -1,38 +1,18 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../components/projectCard";
 
-const projects = [
-  {
-    title: "TaskFlow App",
-    description: "Sistema de gestion de tareas con autenticacion JWT y MongoDB.",
-    tags: ["React", "Node.js", "Tailwind"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1470&q=80",
-  },
-  {
-    title: "E-Commerce",
-    description: "Tienda online con carrito de compras y pasarela de pago.",
-    tags: ["Next.js", "Stripe", "Firebase"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1470&q=80",
-  },
-  {
-    title: "Climate Insights",
-    description:
-      "Aplicacion meteorologica con datos en tiempo real y una experiencia enfocada en visualizacion clara.",
-    tags: ["React", "OpenWeather API", "Chart.js"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1470&q=80",
-    projectUrl: "https://climate-insights-nu.vercel.app/",
-  },
-];
+export default function ProjectsPage({ theme, content }) {
+  const isDark = theme === "dark";
+  const pageClasses = isDark
+    ? "text-white"
+    : "text-slate-900 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.92),_rgba(246,240,232,1)_58%)]";
+  const accentClasses = isDark ? "text-slate-400" : "text-slate-500";
 
-export default function ProjectsPage() {
   return (
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-black text-white pt-32 sm:pt-36 px-4 sm:px-6 pb-10"
+      className={`min-h-screen pt-44 sm:pt-40 px-4 sm:px-6 pb-10 transition-colors duration-500 ${pageClasses}`}
     >
       <div className="max-w-6xl mx-auto">
         <motion.h1
@@ -41,19 +21,26 @@ export default function ProjectsPage() {
           transition={{ duration: 0.6 }}
           className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-10 sm:mb-20"
         >
-          Selected{" "}
-          <span className="italic font-serif text-gray-400">Work.</span>
+          {content.lead}{" "}
+          <span className={`italic font-serif transition-colors duration-500 ${accentClasses}`}>
+            {content.accent}
+          </span>
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-          {projects.map((project, index) => (
+          {content.items.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15 }}
             >
-              <ProjectCard {...project} />
+              <ProjectCard
+                {...project}
+                theme={theme}
+                ctaLabel={content.ctaLabel}
+                placeholderLabel={content.placeholderLabel}
+              />
             </motion.div>
           ))}
         </div>
