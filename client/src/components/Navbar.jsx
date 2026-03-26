@@ -39,25 +39,25 @@ export default function Navbar({
           </div>
         </Link>
 
-        <div className="flex items-start justify-between gap-2 lg:contents">
-          <div className="flex justify-start lg:justify-center min-w-0">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2 lg:contents">
+          <div className="flex justify-start lg:justify-center min-w-0 overflow-hidden">
             <div
-              className={`relative flex shrink-0 rounded-full p-1 border backdrop-blur-md sm:p-1.5 ${navShellClasses}`}
+              className={`relative flex max-w-full rounded-full p-1 border backdrop-blur-md sm:p-1.5 ${navShellClasses}`}
             >
               {nav.items.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 const isHovered = hovered === index;
 
                 return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onMouseEnter={() => setHovered(index)}
-                    onMouseLeave={() => setHovered(null)}
-                    className={`relative px-4 sm:px-7 py-2 text-xs sm:text-base tracking-wide ${
-                      isDark ? "text-white" : "text-slate-900"
-                    }`}
-                  >
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onMouseEnter={() => setHovered(index)}
+                  onMouseLeave={() => setHovered(null)}
+                  className={`relative px-3 sm:px-7 py-2 text-[11px] sm:text-base tracking-wide whitespace-nowrap ${
+                    isDark ? "text-white" : "text-slate-900"
+                  }`}
+                >
                     {(isHovered || isActive) && (
                       <motion.div
                         layoutId="navHighlight"
@@ -79,7 +79,7 @@ export default function Navbar({
             </div>
           </div>
 
-          <div className="flex flex-col items-end justify-start gap-2 sm:flex-row sm:items-center sm:justify-end sm:gap-3">
+          <div className="justify-self-end flex flex-col items-end justify-start gap-2 sm:flex-row sm:items-center sm:justify-end sm:gap-3">
             <div
               className={`inline-flex items-center rounded-full p-1 border backdrop-blur-md ${controlShellClasses}`}
             >
@@ -123,7 +123,7 @@ export default function Navbar({
                 className={`absolute left-1 top-1 h-8 sm:h-8 w-[3.15rem] sm:w-[3.6rem] rounded-full transition-transform duration-300 ${
                   isDark
                     ? "translate-x-0 bg-white"
-                    : "translate-x-[2.65rem] sm:translate-x-[3.9rem] bg-slate-900"
+                    : "translate-x-[3.25rem] sm:translate-x-[3.9rem] bg-slate-900"
                 }`}
               />
               <span className="relative z-10 flex w-full items-center justify-between px-2 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em]">
