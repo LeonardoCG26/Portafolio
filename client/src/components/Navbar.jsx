@@ -39,7 +39,7 @@ export default function Navbar({
           </div>
         </Link>
 
-        <div className="flex items-center justify-between gap-2 lg:contents">
+        <div className="flex items-start justify-between gap-2 lg:contents">
           <div className="flex justify-start lg:justify-center min-w-0">
             <div
               className={`relative flex shrink-0 rounded-full p-1 border backdrop-blur-md sm:p-1.5 ${navShellClasses}`}
@@ -79,7 +79,7 @@ export default function Navbar({
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-2 sm:gap-3">
+          <div className="flex flex-col items-end justify-start gap-2 sm:flex-row sm:items-center sm:justify-end sm:gap-3">
             <div
               className={`inline-flex items-center rounded-full p-1 border backdrop-blur-md ${controlShellClasses}`}
             >
