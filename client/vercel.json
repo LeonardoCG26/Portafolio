@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/climate(.*)", "destination": "https://climate-insights-nu.vercel.app$1" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
