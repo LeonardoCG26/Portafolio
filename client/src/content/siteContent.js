@@ -63,7 +63,7 @@ export const siteContent = {
           tags: ["React", "OpenWeather API", "Chart.js"],
           imageUrl:
             "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1470&q=80",
-          projectUrl: "https://climate-insights-nu.vercel.app/",
+          projectUrl: "https://climate.leonardocortes.com/",
         },
       ],
     },
@@ -132,7 +132,7 @@ export const siteContent = {
           tags: ["React", "OpenWeather API", "Chart.js"],
           imageUrl:
             "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1470&q=80",
-          projectUrl: "https://climate-insights-nu.vercel.app/",
+          projectUrl: "https://climate.leonardocortes.com/",
         },
       ],
     },
