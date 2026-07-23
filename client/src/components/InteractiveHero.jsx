@@ -24,7 +24,7 @@ export default function InteractiveHero({ theme, content }) {
       <div
         className={`relative backdrop-blur-xl rounded-2xl max-w-5xl w-full p-7 sm:p-12 border transition-colors duration-500 ${shellClasses}`}
       >
-        <div className="flex gap-2 mb-8 sm:mb-10">
+        <div aria-hidden="true" className="flex gap-2 mb-8 sm:mb-10">
           <div className="w-3 h-3 bg-red-500 rounded-full" />
           <div className="w-3 h-3 bg-yellow-500 rounded-full" />
           <div className="w-3 h-3 bg-green-500 rounded-full" />

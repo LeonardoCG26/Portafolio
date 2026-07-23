@@ -28,14 +28,18 @@ export default function Navbar({
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 sm:px-6 md:px-8 md:py-6">
       <div className="mx-auto w-full max-w-6xl flex flex-col gap-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-        <Link to="/" className="hover:opacity-80 transition min-w-0">
+        <Link
+          to="/"
+          aria-label={`${identity.name} — ${identity.role}, home`}
+          className="hover:opacity-80 transition min-w-0"
+        >
           <div className="leading-tight">
-            <h1 className={`text-base sm:text-lg font-medium tracking-tight ${nameClasses}`}>
+            <span className={`block text-base sm:text-lg font-medium tracking-tight ${nameClasses}`}>
               {identity.name}
-            </h1>
-            <p className={`text-xs sm:text-sm italic font-serif tracking-wide ${roleClasses}`}>
+            </span>
+            <span className={`block text-xs sm:text-sm italic font-serif tracking-wide ${roleClasses}`}>
               {identity.role}
-            </p>
+            </span>
           </div>
         </Link>
 
@@ -52,6 +56,7 @@ export default function Navbar({
                 <Link
                   key={item.path}
                   to={item.path}
+                  aria-current={isActive ? "page" : undefined}
                   onMouseEnter={() => setHovered(index)}
                   onMouseLeave={() => setHovered(null)}
                   className={`relative px-3 sm:px-7 py-2 text-[11px] sm:text-base tracking-wide whitespace-nowrap ${
@@ -81,11 +86,15 @@ export default function Navbar({
 
           <div className="justify-self-end flex flex-col items-end justify-start gap-2 sm:flex-row sm:items-center sm:justify-end sm:gap-3">
             <div
+              role="group"
+              aria-label="Language"
               className={`inline-flex items-center rounded-full p-1 border backdrop-blur-md ${controlShellClasses}`}
             >
               <button
                 type="button"
                 onClick={() => setLanguage("en")}
+                aria-pressed={language === "en"}
+                aria-label="Switch to English"
                 className={`rounded-full px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-medium transition ${
                   language === "en"
                     ? isDark
@@ -99,6 +108,8 @@ export default function Navbar({
               <button
                 type="button"
                 onClick={() => setLanguage("es")}
+                aria-pressed={language === "es"}
+                aria-label="Cambiar a Espanol"
                 className={`rounded-full px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-medium transition ${
                   language === "es"
                     ? isDark
@@ -126,7 +137,7 @@ export default function Navbar({
                     : "translate-x-[3.25rem] sm:translate-x-[3.9rem] bg-slate-900"
                 }`}
               />
-              <span className="relative z-10 flex w-full items-center justify-between px-2 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em]">
+              <span aria-hidden="true" className="relative z-10 flex w-full items-center justify-between px-2 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em]">
                 <span className={isDark ? "text-slate-900" : inactiveTextClasses}>
                   {nav.themeDark}
                 </span>

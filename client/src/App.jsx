@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import InteractiveHero from "./components/InteractiveHero";
-import ProjectsPage from "./pages/ProjectsPage";
-import About from "./pages/About";
 import { siteContent } from "./content/siteContent";
+
+// Code-splitting por ruta: cada pagina se carga solo cuando se visita,
+// reduciendo el JavaScript del arranque inicial.
+const InteractiveHero = lazy(() => import("./components/InteractiveHero"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const About = lazy(() => import("./pages/About"));
 
 const THEME_KEY = "portfolio-theme";
 const LANGUAGE_KEY = "portfolio-language";
@@ -53,20 +56,22 @@ export default function App() {
         identity={content.identity}
         nav={content.nav}
       />
-      <Routes>
-        <Route
-          path="/"
-          element={<InteractiveHero theme={theme} content={content.hero} />}
-        />
-        <Route
-          path="/projects"
-          element={<ProjectsPage theme={theme} content={content.projectsPage} />}
-        />
-        <Route
-          path="/about"
-          element={<About theme={theme} content={content.about} />}
-        />
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen" aria-hidden="true" />}>
+        <Routes>
+          <Route
+            path="/"
+            element={<InteractiveHero theme={theme} content={content.hero} />}
+          />
+          <Route
+            path="/projects"
+            element={<ProjectsPage theme={theme} content={content.projectsPage} />}
+          />
+          <Route
+            path="/about"
+            element={<About theme={theme} content={content.about} />}
+          />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
