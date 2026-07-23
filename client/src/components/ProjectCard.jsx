@@ -52,6 +52,8 @@ export default function ProjectCard({
         <img
           src={imageUrl}
           alt={title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </motion.div>

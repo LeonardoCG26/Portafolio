@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ProjectCard from "../components/projectCard";
+import ProjectCard from "../components/ProjectCard";
 
 export default function ProjectsPage({ theme, content }) {
   const isDark = theme === "dark";
@@ -30,7 +30,7 @@ export default function ProjectsPage({ theme, content }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {content.items.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15 }}

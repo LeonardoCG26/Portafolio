@@ -1,3 +1,7 @@
+// URL del proyecto Climate. Se puede sobreescribir con VITE_CLIMATE_URL en el .env
+// para no tener que editar el codigo cuando cambie el dominio.
+const CLIMATE_URL = import.meta.env.VITE_CLIMATE_URL || "https://climate.leonardocortes.com/";
+
 export const siteContent = {
   en: {
     identity: {
@@ -41,6 +45,7 @@ export const siteContent = {
       placeholderLabel: "Coming Soon",
       items: [
         {
+          id: "taskflow",
           title: "TaskFlow App",
           description:
             "Task management platform with JWT authentication, project organization, and backend-focused architecture.",
@@ -49,6 +54,7 @@ export const siteContent = {
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1470&q=80",
         },
         {
+          id: "ecommerce",
           title: "E-Commerce",
           description:
             "Online store experience with product browsing, cart flows, and payment-oriented product design.",
@@ -57,13 +63,14 @@ export const siteContent = {
             "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1470&q=80",
         },
         {
+          id: "climate",
           title: "Climate Insights",
           description:
             "Weather application with real-time data, clear data visualization, and a bilingual user experience.",
           tags: ["React", "OpenWeather API", "Chart.js"],
           imageUrl:
             "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1470&q=80",
-          projectUrl: "https://climate.leonardocortes.com/",
+          projectUrl: CLIMATE_URL,
         },
       ],
     },
@@ -110,6 +117,7 @@ export const siteContent = {
       placeholderLabel: "Proximamente",
       items: [
         {
+          id: "taskflow",
           title: "TaskFlow App",
           description:
             "Plataforma de gestion de tareas con autenticacion JWT, organizacion de proyectos y una arquitectura enfocada en backend.",
@@ -118,6 +126,7 @@ export const siteContent = {
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1470&q=80",
         },
         {
+          id: "ecommerce",
           title: "E-Commerce",
           description:
             "Experiencia de tienda en linea con exploracion de productos, carrito de compra y enfoque en flujo de pago.",
@@ -126,13 +135,14 @@ export const siteContent = {
             "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1470&q=80",
         },
         {
+          id: "climate",
           title: "Climate Insights",
           description:
             "Aplicacion del clima con datos en tiempo real, visualizacion clara y experiencia bilingue.",
           tags: ["React", "OpenWeather API", "Chart.js"],
           imageUrl:
             "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1470&q=80",
-          projectUrl: "https://climate.leonardocortes.com/",
+          projectUrl: CLIMATE_URL,
         },
       ],
     },
